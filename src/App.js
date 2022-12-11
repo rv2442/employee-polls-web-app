@@ -16,7 +16,6 @@ function App() {
 		<div className="wrapper">
 			<h1>New question</h1>
 			<Routes>
-				<Route path="/login" element={<Login />} />
 				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="/preferences" element={<Preferences />} />
 			</Routes>
