@@ -3,7 +3,7 @@ import Question from "./Question";
 const Dashboard = ({ questions }) => {
 	return (
 		<div>
-			{Object.keys(questions).forEach((key) => (
+			{Object.keys(questions).map((key) => (
 				<Question
 					id={questions[key].id}
 					author={questions[key].author}

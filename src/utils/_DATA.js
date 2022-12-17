@@ -10,7 +10,7 @@ let users = {
 			am8ehyc8byjqgar0jgpub9: "optionTwo",
 			loxhs1bqm25b708cmbf3g: "optionTwo",
 		},
-		questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
+		questions: [],
 	},
 	sarahedo: {
 		id: "sarahedo",
