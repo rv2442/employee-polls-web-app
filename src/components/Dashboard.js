@@ -1,15 +1,13 @@
 import Question from "./Question";
+import QuestionsColumn from "./QuestionsColumn";
 
 const Dashboard = ({ questions }) => {
+	const columns = ["New Questions", "Done"];
+
 	return (
 		<div>
-			{Object.keys(questions).map((key) => (
-				<Question
-					id={questions[key].id}
-					author={questions[key].author}
-					timestamp={questions[key].timestamp}
-				/>
-			))}
+			<QuestionsColumn title={columns[0]} questions={questions} />
+			<QuestionsColumn title={columns[1]} questions={questions} />
 		</div>
 	);
 };
