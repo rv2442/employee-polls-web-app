@@ -17,20 +17,17 @@ const NavB = () => {
 						<Link to={"/leaderboard"}>
 							<Nav.Link>Leaderboard</Nav.Link>
 						</Link>
-						{/* <Nav.Link href="#link">Leaderboard</Nav.Link> */}
+						<Nav.Link href="#link">Leaderboard</Nav.Link>
 						<Nav.Link href="#link">New</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
-
-			{/* <Container> */}
 			<Navbar.Collapse id="justify-content-end">
 				<Nav className="justify-content-end">
 					<Nav.Link href="#home">User</Nav.Link>
 					<Nav.Link href="#home">Logout</Nav.Link>
 				</Nav>
 			</Navbar.Collapse>
-			{/* </Container> */}
 		</Navbar>
 	);
 };

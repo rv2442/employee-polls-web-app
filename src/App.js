@@ -11,6 +11,8 @@ import { handleInitialData } from "./actions/shared";
 import { LoadingBar } from "react-redux-loading-bar";
 import Poll from "./components/Poll";
 import NavB from "./components/NavB";
+import Leaderboard from "./components/Leaderboard";
+import NewQuestion from "./components/NewQuestion";
 
 function App(props) {
 	const [token, setToken] = useState();
@@ -45,7 +47,9 @@ function App(props) {
 					element={<Dashboard questions={questions} />}
 				/>
 				<Route path="/questions/:id" element={<Poll />} />
+				<Route path="/leaderboard" element={<Leaderboard />} />
 				<Route path="/preferences" element={<Preferences />} />
+				<Route path="/add" element={<NewQuestion />} />
 			</Routes>
 		</div>
 	);
