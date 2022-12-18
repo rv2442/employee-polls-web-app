@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
 import { LoadingBar } from "react-redux-loading-bar";
 import Poll from "./components/Poll";
+import NavB from "./components/NavB";
 
 function App(props) {
 	const [token, setToken] = useState();
@@ -36,7 +37,8 @@ function App(props) {
 	return (
 		<div className="wrapper">
 			<LoadingBar />
-			<h1>App</h1>
+			<NavB />
+			<br />
 			<Routes>
 				<Route
 					path="/dashboard"
