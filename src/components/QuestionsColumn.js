@@ -6,18 +6,21 @@ const QuestionsColumn = (props) => {
 		<div>
 			<h1>{props.title}</h1>
 			<div style={{ display: "flex" }}>
-				{props.questionsIds.map((id) => (
-					<Question key={id} id={id} />
+				{props.questions.map((questionID) => (
+					<Question key={questionID} id={questionID} />
 				))}
 			</div>
 		</div>
 	);
 };
 
-const mapStateToProps = ({ questions }) => ({
-	questionsIds: Object.keys(questions).sort(
-		(a, b) => questions[b].timestamp - questions[a].timestamp
-	),
-});
+// const mapStateToProps = ({ questions, authedUser }, { title }) => ({
+// 	questionsIds: Object.keys(questions).sort(
+// 		(a, b) => questions[b].timestamp - questions[a].timestamp
+// 	),
+// 	title,
+// 	authedUser,
+// });
+export default QuestionsColumn;
 
-export default connect(mapStateToProps)(QuestionsColumn);
+// export default connect(mapStateToProps)(QuestionsColumn);

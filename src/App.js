@@ -42,10 +42,7 @@ function App(props) {
 			<NavB />
 			<br />
 			<Routes>
-				<Route
-					path="/dashboard"
-					element={<Dashboard questions={questions} />}
-				/>
+				<Route path="/" element={<Dashboard questions={questions} />} />
 				<Route path="/questions/:id" element={<Poll />} />
 				<Route path="/leaderboard" element={<Leaderboard />} />
 				<Route path="/preferences" element={<Preferences />} />

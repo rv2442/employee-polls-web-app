@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getUsersPositions } from "../utils/helpers";
 
 const Leaderboard = (props) => {
-	const formatLeaderBoard = (props) => {};
 	return (
 		<div>
 			<Table striped bordered hover>
