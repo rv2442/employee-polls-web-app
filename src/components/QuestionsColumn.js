@@ -1,19 +1,23 @@
 import Question from "./Question";
-
-const QuestionsColumn = ({ title, questions }) => {
+import { connect } from "react-redux";
+const QuestionsColumn = (props) => {
+	console.log(props);
 	return (
 		<div>
-			<h1>{title}</h1>
+			<h1>{props.title}</h1>
 			<div style={{ display: "flex" }}>
-				{Object.keys(questions).map((key) => (
-					<Question
-						id={questions[key].id}
-						author={questions[key].author}
-						timestamp={questions[key].timestamp}
-					/>
+				{props.questionsIds.map((id) => (
+					<Question key={id} id={id} />
 				))}
 			</div>
 		</div>
 	);
 };
-export default QuestionsColumn;
+
+const mapStateToProps = ({ questions }) => ({
+	questionsIds: Object.keys(questions).sort(
+		(a, b) => questions[b].timestamp - questions[a].timestamp
+	),
+});
+
+export default connect(mapStateToProps)(QuestionsColumn);

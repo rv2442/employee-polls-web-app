@@ -45,4 +45,7 @@ function App(props) {
 	);
 }
 
-export default connect()(App);
+const mapStateToProps = ({ authedUser }) => ({
+	loading: authedUser === null,
+});
+export default connect(mapStateToProps)(App);
