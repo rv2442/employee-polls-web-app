@@ -6,23 +6,26 @@ import Dashboard from "./components/Dashboard";
 import Preferences from "./components/Preferences";
 import { useState, useEffect } from "react";
 import { getInitialData } from "./utils/api";
+import { connect } from "react-redux";
+import { handleInitialData } from "./actions/shared";
 
-function App() {
+function App(props) {
 	const [token, setToken] = useState();
 	const [questions, setQuestions] = useState([]);
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
-		let unmounted = false;
-		if (!unmounted) {
-			getInitialData().then(({ users, questions }) => {
-				setUsers(users);
-				setQuestions(questions);
-			});
-		}
-		return () => {
-			unmounted = true;
-		};
+		// let unmounted = false;
+		// if (!unmounted) {
+		// 	getInitialData().then(({ users, questions }) => {
+		// 		setUsers(users);
+		// 		setQuestions(questions);
+		// 	});
+		// }
+		// return () => {
+		// 	// unmounted = true;
+		// };
+		props.dispatch(handleInitialData());
 	}, []);
 
 	if (token) {
@@ -42,4 +45,4 @@ function App() {
 	);
 }
 
-export default App;
+export default connect()(App);
