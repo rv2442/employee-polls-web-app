@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import { getInitialData } from "./utils/api";
 import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
+import { LoadingBar } from "react-redux-loading-bar";
+import Poll from "./components/Poll";
 
 function App(props) {
 	const [token, setToken] = useState();
@@ -33,12 +35,14 @@ function App(props) {
 	}
 	return (
 		<div className="wrapper">
-			<h1>New question</h1>
+			<LoadingBar />
+			<h1>App</h1>
 			<Routes>
 				<Route
 					path="/dashboard"
 					element={<Dashboard questions={questions} />}
 				/>
+				<Route path="/questions/:id" element={<Poll />} />
 				<Route path="/preferences" element={<Preferences />} />
 			</Routes>
 		</div>

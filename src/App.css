@@ -38,6 +38,17 @@
   padding: 20px;
 }
 
+.avatar {
+  height: 200px;
+  border-radius: 100px;
+  margin: 10px;
+}
+
+.poll-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
