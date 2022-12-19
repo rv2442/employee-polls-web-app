@@ -2,8 +2,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const NavB = () => {
+const NavB = (props) => {
 	return (
 		<Navbar bg="light" expand="lg">
 			<Container>
@@ -26,12 +27,16 @@ const NavB = () => {
 			</Container>
 			<Navbar.Collapse id="justify-content-end">
 				<Nav className="justify-content-end">
-					<Nav.Link href="#home">User</Nav.Link>
+					<Nav.Link>{props.authedUser}</Nav.Link>
 					<Nav.Link href="#home">Logout</Nav.Link>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
 	);
 };
-
-export default NavB;
+const mapStateToProps = ({ authedUser }) => {
+	return {
+		authedUser,
+	};
+};
+export default connect(mapStateToProps)(NavB);

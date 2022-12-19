@@ -63,11 +63,6 @@ const mapStateToProps = ({ authedUser, questions, users }, props) => {
 	return {
 		id,
 		question,
-		// replies: !tweets[id]
-		// 	? []
-		// 	: tweets[id].replies.sort(
-		// 			(a, b) => tweets[b].timestamp - tweets[a].timestamp
-		// 	  ),
 	};
 };
 export default withRouter(connect(mapStateToProps)(Poll));
