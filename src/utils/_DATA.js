@@ -1,7 +1,7 @@
 let users = {
 	brayanhernandez: {
 		id: "brayanhernandez",
-		password: "password123",
+		password: "123",
 		name: "Brayan Hernandez",
 		avatarURL: null,
 		answers: {

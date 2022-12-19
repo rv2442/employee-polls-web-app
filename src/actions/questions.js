@@ -19,7 +19,7 @@ function addQuestion(question) {
 	};
 }
 
-function toggleAnswer({ id, authedUser, option }) {
+export function toggleAnswer({ id, authedUser, option }) {
 	return {
 		type: TOGGLE_ANSWER,
 		id,
@@ -28,17 +28,23 @@ function toggleAnswer({ id, authedUser, option }) {
 	};
 }
 
-export function handleToggleAnswer(info) {
-	return (dispatch) => {
-		dispatch(toggleAnswer(info));
+// export function handleToggleAnswer(info) {
+// 	const infoParsed = {
+// 		authedUser: info.authedUser,
+// 		qid: info.id,
+// 		answer: info.option,
+// 	};
 
-		return saveQuestionAnswer(info).catch((e) => {
-			console.warn("Error in handleToggleAnswer", e);
-			dispatch(toggleAnswer(info));
-			alert("There was an error saving answer. Try again.");
-		});
-	};
-}
+// 	return (dispatch) => {
+// 		dispatch(toggleAnswer(info));
+
+// 		return saveQuestionAnswer(infoParsed).catch((e) => {
+// 			console.warn("Error in handleToggleAnswer", e);
+// 			dispatch(toggleAnswer(info));
+// 			alert("There was an error saving answer. Try again.");
+// 		});
+// 	};
+// }
 export function handleAddQuestion(optionOneText, optionTwoText) {
 	return (dispatch, getState) => {
 		const { authedUser } = getState();

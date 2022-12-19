@@ -2,7 +2,8 @@ import Option from "../components/Option";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { handleToggleAnswer } from "../actions/questions";
+// import { handleToggleAnswer } from "../actions/questions";
+import { handleToggleAnswer } from "../actions/shared";
 
 const withRouter = (Component) => {
 	const ComponentWithRouterProp = (props) => {
@@ -16,12 +17,6 @@ const withRouter = (Component) => {
 };
 
 const Poll = (props) => {
-	// const [option, setOption] = useState("");
-
-	// const getOption = (option) => {
-	// 	setOption(option);
-	// 	handleAnswer();
-	// };
 	const handleAnswer = (e) => {
 		e.preventDefault();
 		const { dispatch, question, authedUser } = props;
@@ -58,7 +53,7 @@ const Poll = (props) => {
 	);
 };
 
-const mapStateToProps = ({ authedUser, questions, users }, props) => {
+const mapStateToProps = ({ authedUser, questions }, props) => {
 	const { id } = props.router.params;
 	const question = questions[id];
 

@@ -16,7 +16,7 @@ const Leaderboard = (props) => {
 				<tbody>
 					{props.positions &&
 						props.positions.map((position) => (
-							<tr>
+							<tr key={position.id}>
 								<td>
 									<div>{position.avatarURL}</div>
 									<div>{position.name}</div>
@@ -33,7 +33,7 @@ const Leaderboard = (props) => {
 };
 const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
 	const question = questions[id];
-	const positions = getUsersPositions(users);
+	const positions = getUsersPositions(users, questions);
 
 	return {
 		authedUser,

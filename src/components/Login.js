@@ -1,23 +1,35 @@
 import { useState } from "react";
+import { connect } from "react-redux";
+import { existsUser } from "../utils/helpers";
+import { setAuthedUser } from "../actions/authedUser";
+import { useNavigate } from "react-router-dom";
 
-const loginUser = (credentials) => {
-	if (credentials.user === "brayan" && credentials.password === "brayan") {
-		return "tokenValid";
-	}
-	return;
-};
-
-const Login = ({ setToken }) => {
+const Login = (props) => {
+	const { dispatch, users } = props;
 	const [user, setUser] = useState();
 	const [password, setPassword] = useState();
+	const navigate = useNavigate();
+
+	const loginUser = () => {
+		if (existsUser(user, users)) {
+			if (users[user].password === password) {
+				dispatch(setAuthedUser(user));
+				navigate("/");
+			} else {
+				alert("Wrong password.");
+			}
+		} else {
+			alert("User not exists.");
+		}
+		// if (credentials.user === "brayan" && credentials.password === "brayan") {
+		// 	return "tokenValid";
+		// }
+		// return;
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const token = loginUser({
-			user,
-			password,
-		});
-		setToken(token);
+		loginUser();
 	};
 
 	return (
@@ -45,4 +57,9 @@ const Login = ({ setToken }) => {
 		</div>
 	);
 };
-export default Login;
+const mapStateToProps = ({ users }) => {
+	return {
+		users,
+	};
+};
+export default connect(mapStateToProps)(Login);
