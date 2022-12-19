@@ -1,7 +1,8 @@
-import Image from "react-bootstrap/Image";
 import Option from "../components/Option";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import { useState } from "react";
+import { handleToggleAnswer } from "../actions/questions";
 
 const withRouter = (Component) => {
 	const ComponentWithRouterProp = (props) => {
@@ -15,6 +16,22 @@ const withRouter = (Component) => {
 };
 
 const Poll = (props) => {
+	const [option, setOption] = useState("");
+	const getOption = (option) => {
+		setOption(option);
+	};
+	const handleAnswer = (e) => {
+		e.preventDefault();
+		const { dispatch, question, authedUser } = props;
+
+		dispatch(
+			handleToggleAnswer({
+				id: question.id,
+				authedUser,
+				option: option,
+			})
+		);
+	};
 	return (
 		<div className={"poll-wrapper"}>
 			<h2>Poll by {props.question.author}</h2>
@@ -24,8 +41,16 @@ const Poll = (props) => {
 			/>
 			<h2>Would You Rather</h2>
 			<div style={{ display: "flex" }}>
-				<Option option={props.question.optionOne.text} />
-				<Option option={props.question.optionTwo.text} />
+				<Option
+					option={"optionOne"}
+					handleOption={getOption}
+					textOption={props.question.optionOne.text}
+				/>
+				<Option
+					option={"optionTwo"}
+					handleOption={getOption}
+					textOption={props.question.optionTwo.text}
+				/>
 			</div>
 		</div>
 	);

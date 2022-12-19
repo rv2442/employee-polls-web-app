@@ -1,4 +1,8 @@
-import { ADD_QUESTION, RECEIVE_QUESTIONS } from "../actions/questions";
+import {
+	ADD_QUESTION,
+	RECEIVE_QUESTIONS,
+	TOGGLE_ANSWER,
+} from "../actions/questions";
 
 export default function questions(state = {}, action) {
 	switch (action.type) {
@@ -10,7 +14,30 @@ export default function questions(state = {}, action) {
 		case ADD_QUESTION:
 			return {
 				...state,
-				...action.question,
+				[action.question.id]: { ...action.question },
+			};
+		case TOGGLE_ANSWER:
+			return {
+				...state,
+				[action.id]: {
+					...state[action.id],
+					optionOne: {
+						votes:
+							action.option == "optionOne"
+								? state[action.id].optionOne.votes.filter(
+										(uid) => uid != action.authedUser
+								  )
+								: state[action.id].optionOne.votes.concat([action.authedUser]),
+					},
+					optionTwo: {
+						votes:
+							action.option == "optionTwo"
+								? state[action.id].optionTwo.votes.filter(
+										(uid) => uid != action.authedUser
+								  )
+								: state[action.id].optionTwo.votes.concat([action.authedUser]),
+					},
+				},
 			};
 		default:
 			return state;

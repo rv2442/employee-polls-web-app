@@ -1,12 +1,14 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const Option = ({ option }) => {
+const Option = ({ textOption, option, handleOption }) => {
 	return (
 		<Card style={{ width: "18rem" }}>
 			<Card.Body>
-				<Card.Text>{option}</Card.Text>
-				<Button variant="primary">Click</Button>
+				<Card.Text>{textOption}</Card.Text>
+				<Button variant="primary" onClick={() => handleOption(option)}>
+					Click
+				</Button>
 			</Card.Body>
 		</Card>
 	);

@@ -1,8 +1,9 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
-import { saveQuestion } from "../utils/api";
+import { saveQuestion, saveQuestionAnswer } from "../utils/api";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
+export const TOGGLE_ANSWER = "TOGGLE_ANSWER";
 
 export function receiveQuestions(questions) {
 	return {
@@ -18,6 +19,26 @@ function addQuestion(question) {
 	};
 }
 
+function toggleAnswer({ id, authedUser, option }) {
+	return {
+		type: TOGGLE_ANSWER,
+		id,
+		authedUser,
+		option,
+	};
+}
+
+export function handleToggleAnswer(info) {
+	return (dispatch) => {
+		dispatch(toggleAnswer(info));
+
+		return saveQuestionAnswer(info).catch((e) => {
+			console.warn("Error in handleToggleAnswer", e);
+			dispatch(toggleAnswer(info));
+			alert("There was an error saving answer. Try again.");
+		});
+	};
+}
 export function handleAddQuestion(optionOneText, optionTwoText) {
 	return (dispatch, getState) => {
 		const { authedUser } = getState();
