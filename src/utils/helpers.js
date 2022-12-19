@@ -33,3 +33,41 @@ export function existsUser(userId, users) {
 	const userIds = Object.keys(users);
 	return userIds.includes(userId);
 }
+
+export function checkPollAnsweredByUser(userId, question) {
+	return (
+		question.optionOne.votes.includes(userId) ||
+		question.optionTwo.votes.includes(userId)
+	);
+}
+
+export function getAnsweredOption(userId, question) {
+	if (question.optionOne.votes.includes(userId)) {
+		return "optionOne";
+	} else if (question.optionTwo.votes.includes(userId)) {
+		return "optionTwo";
+	} else {
+		return "NOT_ANSWERED";
+	}
+}
+
+function getNumberOfUsers(users) {
+	const userIds = Object.keys(users);
+	return userIds.length;
+}
+
+export function getNumberOfVotesOptionOne(question) {
+	return question.optionOne.votes.length;
+}
+
+export function getNumberOfVotesOptionTwo(question) {
+	return question.optionTwo.votes.length;
+}
+
+export function getPorcentajeOptionOne(question, users) {
+	return (getNumberOfVotesOptionOne(question) / getNumberOfUsers(users)) * 100;
+}
+
+export function getPorcentajeOptionTwo(question, users) {
+	return (getNumberOfVotesOptionTwo(question) / getNumberOfUsers(users)) * 100;
+}

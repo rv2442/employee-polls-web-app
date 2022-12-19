@@ -1,7 +1,14 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const Option = ({ textOption, option, handleOption }) => {
+const Option = ({
+	textOption,
+	option,
+	handleOption,
+	answeredOption,
+	porcentajeOption,
+	numberOfVotesOption,
+}) => {
 	return (
 		<Card style={{ width: "18rem" }}>
 			<Card.Body>
@@ -11,9 +18,25 @@ const Option = ({ textOption, option, handleOption }) => {
 					variant="primary"
 					onClick={handleOption}
 					value={option}
+					disabled={answeredOption !== "NOT_ANSWERED"}
 				>
 					Click
 				</Button>
+				{answeredOption === option ? (
+					<Card.Text style={{ color: "green" }}> ✔️ Option selected.</Card.Text>
+				) : null}
+				{answeredOption !== "NOT_ANSWERED" ? (
+					<Card.Text style={{ color: "blue" }}>
+						{" "}
+						People voted: {numberOfVotesOption}
+					</Card.Text>
+				) : null}
+				{answeredOption !== "NOT_ANSWERED" ? (
+					<Card.Text style={{ color: "blue" }}>
+						{" "}
+						Porcentaje voted: {porcentajeOption} %
+					</Card.Text>
+				) : null}
 			</Card.Body>
 		</Card>
 	);
