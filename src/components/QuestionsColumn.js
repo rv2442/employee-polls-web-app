@@ -1,5 +1,4 @@
 import Question from "./Question";
-import { connect } from "react-redux";
 const QuestionsColumn = (props) => {
 	console.log(props);
 	return (
@@ -13,14 +12,4 @@ const QuestionsColumn = (props) => {
 		</div>
 	);
 };
-
-// const mapStateToProps = ({ questions, authedUser }, { title }) => ({
-// 	questionsIds: Object.keys(questions).sort(
-// 		(a, b) => questions[b].timestamp - questions[a].timestamp
-// 	),
-// 	title,
-// 	authedUser,
-// });
 export default QuestionsColumn;
-
-// export default connect(mapStateToProps)(QuestionsColumn);

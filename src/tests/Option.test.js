@@ -8,7 +8,6 @@ describe("Option", () => {
 			<Option
 				textOption={"Play futbol"}
 				option={"optionOne"}
-				// handleOption={}
 				answeredOption={"NOT_ANSWERED"}
 				porcentajeOption={50}
 				numberOfVotesOption={5}
@@ -22,7 +21,6 @@ describe("Option", () => {
 			<Option
 				textOption={"Play futbol"}
 				option={"optionOne"}
-				// handleOption={}
 				answeredOption={"optionOne"}
 				porcentajeOption={50}
 				numberOfVotesOption={5}

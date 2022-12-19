@@ -39,6 +39,7 @@ const NewQuestion = ({ dispatch }) => {
 			<form className="new-question" onSubmit={handleSubmit}>
 				<label>First Option</label>
 				<input
+					data-test-id="input-option-one"
 					placeholder="Option One"
 					value={optionOneText}
 					onChange={handleChangeOptionOne}
@@ -47,6 +48,7 @@ const NewQuestion = ({ dispatch }) => {
 				/>
 				<label>Second Option</label>
 				<input
+					data-test-id="input-option-two"
 					placeholder="Option Two"
 					value={optionTwoText}
 					onChange={handleChangeOptionTwo}
@@ -55,6 +57,7 @@ const NewQuestion = ({ dispatch }) => {
 				/>
 
 				<Button
+					data-test-id="submit-button"
 					className="btn"
 					type="submit"
 					disabled={optionOneText === "" || optionTwoText === ""}

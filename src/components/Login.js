@@ -21,10 +21,6 @@ const Login = (props) => {
 		} else {
 			alert("User not exists.");
 		}
-		// if (credentials.user === "brayan" && credentials.password === "brayan") {
-		// 	return "tokenValid";
-		// }
-		// return;
 	};
 
 	const handleSubmit = (e) => {
