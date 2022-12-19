@@ -1,21 +1,8 @@
 let users = {
 	brayanhernandez: {
 		id: "brayanhernandez",
-		password: "123",
-		name: "Brayan Hernandez",
-		avatarURL: null,
-		answers: {
-			"8xf0y6ziyjabvozdd253nd": "optionOne",
-			"6ni6ok3ym7mf1p33lnez": "optionOne",
-			am8ehyc8byjqgar0jgpub9: "optionTwo",
-			loxhs1bqm25b708cmbf3g: "optionTwo",
-		},
-		questions: [],
-	},
-	sarahedo: {
-		id: "sarahedo",
 		password: "password123",
-		name: "Sarah Edo",
+		name: "Brayan Hernandez",
 		avatarURL: null,
 		answers: {
 			"8xf0y6ziyjabvozdd253nd": "optionOne",
@@ -63,10 +50,10 @@ let users = {
 let questions = {
 	"8xf0y6ziyjabvozdd253nd": {
 		id: "8xf0y6ziyjabvozdd253nd",
-		author: "sarahedo",
+		author: "brayanhernandez",
 		timestamp: 1467166872634,
 		optionOne: {
-			votes: ["sarahedo"],
+			votes: ["brayanhernandez"],
 			text: "Build our new application with Javascript",
 		},
 		optionTwo: {
@@ -83,20 +70,20 @@ let questions = {
 			text: "hire more frontend developers",
 		},
 		optionTwo: {
-			votes: ["mtsamis", "sarahedo"],
+			votes: ["mtsamis", "brayanhernandez"],
 			text: "hire more backend developers",
 		},
 	},
 	am8ehyc8byjqgar0jgpub9: {
 		id: "am8ehyc8byjqgar0jgpub9",
-		author: "sarahedo",
+		author: "brayanhernandez",
 		timestamp: 1488579767190,
 		optionOne: {
 			votes: [],
 			text: "conduct a release retrospective 1 week after a release",
 		},
 		optionTwo: {
-			votes: ["sarahedo"],
+			votes: ["brayanhernandez"],
 			text: "conduct release retrospectives quarterly",
 		},
 	},
@@ -109,7 +96,7 @@ let questions = {
 			text: "have code reviews conducted by peers",
 		},
 		optionTwo: {
-			votes: ["sarahedo"],
+			votes: ["brayanhernandez"],
 			text: "have code reviews conducted by managers",
 		},
 	},

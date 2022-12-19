@@ -16,10 +16,12 @@ const withRouter = (Component) => {
 };
 
 const Poll = (props) => {
-	const [option, setOption] = useState("");
-	const getOption = (option) => {
-		setOption(option);
-	};
+	// const [option, setOption] = useState("");
+
+	// const getOption = (option) => {
+	// 	setOption(option);
+	// 	handleAnswer();
+	// };
 	const handleAnswer = (e) => {
 		e.preventDefault();
 		const { dispatch, question, authedUser } = props;
@@ -28,7 +30,7 @@ const Poll = (props) => {
 			handleToggleAnswer({
 				id: question.id,
 				authedUser,
-				option: option,
+				option: e.target.value,
 			})
 		);
 	};
@@ -43,12 +45,12 @@ const Poll = (props) => {
 			<div style={{ display: "flex" }}>
 				<Option
 					option={"optionOne"}
-					handleOption={getOption}
+					handleOption={handleAnswer}
 					textOption={props.question.optionOne.text}
 				/>
 				<Option
 					option={"optionTwo"}
-					handleOption={getOption}
+					handleOption={handleAnswer}
 					textOption={props.question.optionTwo.text}
 				/>
 			</div>
@@ -63,6 +65,7 @@ const mapStateToProps = ({ authedUser, questions, users }, props) => {
 	return {
 		id,
 		question,
+		authedUser,
 	};
 };
 export default withRouter(connect(mapStateToProps)(Poll));

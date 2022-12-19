@@ -58,7 +58,7 @@
   flex-direction: column;
 }
 
-.btn {
+/* .btn {
   text-transform: uppercase;
   margin: 35px auto;
   padding: 10px;
@@ -68,18 +68,8 @@
   font-size: 16px;
   width: 250px;
   position: relative;
-}
+} */
 
-.btn:hover {
-  border-color: rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-}
-
-.btn:focus {
-  outline: 0;
-  font-weight: 700;
-  border-width: 2px;
-}
 .center {
   text-align: center;
 }

@@ -2,10 +2,10 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { handleAddQuestion } from "../actions/questions";
+import Button from "react-bootstrap/Button";
 
 const NewQuestion = ({ dispatch }) => {
 	const navigate = useNavigate();
-	const [text, setText] = useState("");
 	const [optionOneText, setOptionOneText] = useState("");
 	const [optionTwoText, setoptionTwoText] = useState("");
 
@@ -54,13 +54,13 @@ const NewQuestion = ({ dispatch }) => {
 					maxLength={100}
 				/>
 
-				<button
+				<Button
 					className="btn"
 					type="submit"
 					disabled={optionOneText === "" || optionTwoText === ""}
 				>
 					Submit
-				</button>
+				</Button>
 			</form>
 		</div>
 	);

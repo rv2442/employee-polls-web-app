@@ -6,7 +6,12 @@ const Option = ({ textOption, option, handleOption }) => {
 		<Card style={{ width: "18rem" }}>
 			<Card.Body>
 				<Card.Text>{textOption}</Card.Text>
-				<Button variant="primary" onClick={() => handleOption(option)}>
+				<Button
+					style={{ width: "auto" }}
+					variant="primary"
+					onClick={handleOption}
+					value={option}
+				>
 					Click
 				</Button>
 			</Card.Body>

@@ -23,19 +23,15 @@ export default function questions(state = {}, action) {
 					...state[action.id],
 					optionOne: {
 						votes:
-							action.option == "optionOne"
-								? state[action.id].optionOne.votes.filter(
-										(uid) => uid != action.authedUser
-								  )
-								: state[action.id].optionOne.votes.concat([action.authedUser]),
+							action.option === "optionOne"
+								? state[action.id].optionOne.votes.concat([action.authedUser])
+								: state[action.id].optionOne.votes,
 					},
 					optionTwo: {
 						votes:
-							action.option == "optionTwo"
-								? state[action.id].optionTwo.votes.filter(
-										(uid) => uid != action.authedUser
-								  )
-								: state[action.id].optionTwo.votes.concat([action.authedUser]),
+							action.option === "optionTwo"
+								? state[action.id].optionTwo.votes.concat([action.authedUser])
+								: state[action.id].optionTwo.votes,
 					},
 				},
 			};
