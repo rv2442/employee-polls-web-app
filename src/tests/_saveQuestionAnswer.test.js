@@ -3,7 +3,7 @@ import { _saveQuestionAnswer } from "../utils/_DATA";
 describe("_saveQuestionAnswer", () => {
 	it(" will verify that true is returned when correctly formatted data is passed to the function.", async () => {
 		var questionAnswer = {
-			authedUser: "brayanhernandez",
+			authedUser: "Benjamin",
 			qid: "xj352vofupe1dqz9emx13r",
 			answer: "optionOne",
 		};

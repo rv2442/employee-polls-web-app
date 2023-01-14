@@ -6,7 +6,7 @@ const Option = ({
 	option,
 	handleOption,
 	answeredOption,
-	porcentajeOption,
+	percentageOption,
 	numberOfVotesOption,
 }) => {
 	return (
@@ -34,7 +34,7 @@ const Option = ({
 				{answeredOption !== "NOT_ANSWERED" ? (
 					<Card.Text style={{ color: "blue" }}>
 						{" "}
-						Porcentaje voted: {porcentajeOption} %
+						Percentage voted: {percentageOption} %
 					</Card.Text>
 				) : null}
 			</Card.Body>

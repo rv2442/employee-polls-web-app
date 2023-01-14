@@ -64,10 +64,10 @@ export function getNumberOfVotesOptionTwo(question) {
 	return question.optionTwo.votes.length;
 }
 
-export function getPorcentajeOptionOne(question, users) {
+export function getPercentageOptionOne(question, users) {
 	return (getNumberOfVotesOptionOne(question) / getNumberOfUsers(users)) * 100;
 }
 
-export function getPorcentajeOptionTwo(question, users) {
+export function getPercentageOptionTwo(question, users) {
 	return (getNumberOfVotesOptionTwo(question) / getNumberOfUsers(users)) * 100;
 }

@@ -5,8 +5,8 @@ import { useState } from "react";
 // import { handleToggleAnswer } from "../actions/questions";
 import { handleToggleAnswer } from "../actions/shared";
 import {
-	getPorcentajeOptionOne,
-	getPorcentajeOptionTwo,
+	getPercentageOptionOne,
+	getPercentageOptionTwo,
 	getNumberOfVotesOptionOne,
 	getNumberOfVotesOptionTwo,
 	getAnsweredOption,
@@ -29,8 +29,8 @@ const Poll = (props) => {
 		question,
 		authedUser,
 		answeredOption,
-		porcentajeOptionOne,
-		porcentajeOptionTwo,
+		percentageOptionOne,
+		percentageOptionTwo,
 		numberOfVotesOptionOne,
 		numberOfVotesOptionTwo,
 	} = props;
@@ -52,7 +52,7 @@ const Poll = (props) => {
 			<h2>Poll by {props.question.author}</h2>
 			<img
 				className={"avatar"}
-				src="https://www.shefinds.com/files/2022/09/Dua-Lipa.jpg"
+				src="https://m.media-amazon.com/images/I/51cOM2ZPaoL.png"
 			/>
 			<h2>Would You Rather</h2>
 			<div style={{ display: "flex" }}>
@@ -61,7 +61,7 @@ const Poll = (props) => {
 					handleOption={handleAnswer}
 					textOption={props.question.optionOne.text}
 					answeredOption={answeredOption}
-					porcentajeOption={porcentajeOptionOne}
+					percentageOption={percentageOptionOne}
 					numberOfVotesOption={numberOfVotesOptionOne}
 				/>
 				<Option
@@ -69,7 +69,7 @@ const Poll = (props) => {
 					handleOption={handleAnswer}
 					textOption={props.question.optionTwo.text}
 					answeredOption={answeredOption}
-					porcentajeOption={porcentajeOptionTwo}
+					percentageOption={percentageOptionTwo}
 					numberOfVotesOption={numberOfVotesOptionTwo}
 				/>
 			</div>
@@ -81,8 +81,8 @@ const mapStateToProps = ({ authedUser, questions, users }, props) => {
 	const { id } = props.router.params;
 	const question = questions[id];
 	const answeredOption = getAnsweredOption(authedUser, question);
-	const porcentajeOptionOne = getPorcentajeOptionOne(question, users);
-	const porcentajeOptionTwo = getPorcentajeOptionTwo(question, users);
+	const percentageOptionOne = getPercentageOptionOne(question, users);
+	const percentageOptionTwo = getPercentageOptionTwo(question, users);
 	const numberOfVotesOptionOne = getNumberOfVotesOptionOne(question);
 	const numberOfVotesOptionTwo = getNumberOfVotesOptionTwo(question);
 
@@ -91,8 +91,8 @@ const mapStateToProps = ({ authedUser, questions, users }, props) => {
 		question,
 		authedUser,
 		answeredOption,
-		porcentajeOptionOne,
-		porcentajeOptionTwo,
+		percentageOptionOne,
+		percentageOptionTwo,
 		numberOfVotesOptionOne,
 		numberOfVotesOptionTwo,
 	};
