@@ -32,12 +32,12 @@ function App(props) {
 					<NavB />
 					<br />
 					<Routes>
-						<Route path="/employee-polls-web-app/" element={<Dashboard />} />
-						<Route path="/employee-polls-web-app/questions/:id" element={<Poll />} />
-						<Route path="/employee-polls-web-app/leaderboard" element={<Leaderboard />} />
-						<Route path="/employee-polls-web-app/preferences" element={<Preferences />} />
-						<Route path="/employee-polls-web-app/add" element={<NewQuestion />} />
-						<Route path="/employee-polls-web-app/login" element={<Login />} />
+						<Route path="/" element={<Dashboard />} />
+						<Route path="/questions/:id" element={<Poll />} />
+						<Route path="/leaderboard" element={<Leaderboard />} />
+						<Route path="/preferences" element={<Preferences />} />
+						<Route path="/add" element={<NewQuestion />} />
+						<Route path="/login" element={<Login />} />
 					</Routes>
 				</div>
 			</Fragment>
